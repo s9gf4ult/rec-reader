@@ -26,3 +26,5 @@ test = do
     return $ newApp2 us
   runRecReaderT app2 app1Handler
   runRecReaderT app2 app2Handler
+  let app2' = app2 & field' @"userService" .~ constUserService Anon
+  runRecReaderT app2' app1Handler
